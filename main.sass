@@ -1,0 +1,65 @@
+@import card
+    
+    
+html
+    font-size: 10px
+
+body
+    padding: 0
+    margin: 0
+
+%paragraph-text
+    font-size: 1.6rem
+    line-height: 2.4rem
+    font-family: Georgia, 'Times New Roman', Times, serif
+    
+%container-padding
+    padding: 2rem
+
+.container
+    max-width: 1140px
+    margin: 0 auto
+    display: grid
+    grid-template-columns: 1fr 1fr minmax(0, 1fr) minmax(300px, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    grid-gap: 1rem 0
+    grid-template-areas: "header header header header" "main main . sidebar" "footer footer footer footer"
+
+body    
+    background: #f8f8f8
+
+
+//header
+.header
+    background: #f9dcc4
+    grid-area: header
+    @extend %container-padding
+
+    &__paragraph
+        @extend %paragraph-text
+
+//main
+.main
+    background: #fcd5ce
+    grid-area: main
+    @extend %container-padding
+
+    &__li
+        @extend %paragraph-text
+
+    
+//sidebar
+.sidebar
+    background: #ffb5a7
+    grid-area: sidebar
+    @extend %container-padding
+
+    &__paragraph
+        @extend %paragraph-text
+
+    
+//footer
+.footer
+    background: #f8edeb
+    grid-area: footer
+    @extend %container-padding
