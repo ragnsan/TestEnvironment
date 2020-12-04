@@ -1,0 +1,145 @@
+//variables
+
+$green: rgb(60, 136, 121)
+$brown: rgb(95, 90, 68)
+$beige: rgb(255, 255, 249)
+
+
+//values
+
+%uppercase
+    text-transform: uppercase
+
+%flexing
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap 
+
+%flex-ned-og-center
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+
+%border-bottom
+    border-bottom: dotted 2px black
+    
+%text-spacing
+    margin: 0rem .5rem 0 1rem
+    
+//structure
+
+html    
+    font-size: 10px
+    box-sizing: border-box
+    background: $beige
+    font-family: Georgia, 'Times New Roman', Times, serif
+
+body    
+    padding: 0
+    margin: 0
+    
+*, *:before, *:after 
+    box-sizing: inherit
+
+
+
+//typography
+
+p
+    font-size: 1.6rem
+
+.thick
+    font-weight: 700
+
+
+
+//menu
+
+.menu
+    display: grid
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr
+    grid-template-rows: .5fr 1fr 6fr
+    @extend %border-bottom
+    grid-template-areas: ". url pic phone ." "heading-breakfast heading-breakfast pic heading-lunch heading-lunch" "breakfast breakfast sides lunch lunch" 
+    
+    &__h2
+        @extend %text-spacing
+        @extend %uppercase
+        font-size: 3.2rem
+        color: $green
+
+    &__h3
+        font-size: 2rem
+
+    
+    &__item
+        @extend %text-spacing
+        max-width: 300px
+
+        &__name
+            @extend %uppercase
+            font-size: 1.7rem
+            margin-bottom: 0
+            color: $brown
+
+    &__url
+        grid-area: url
+        @extend %border-bottom
+
+        &__link
+            color: $green
+
+    &__phone
+        grid-area: phone
+        @extend %border-bottom
+
+    &__pic
+        grid-area: pic
+
+
+//breakfast
+.breakfast
+    grid-area: breakfast
+
+    &__desc
+        @extend %text-spacing
+
+    &__content
+        max-height: 1200px
+        @extend %flexing
+
+    &__header
+        grid-area: heading-breakfast
+         display: flex
+    
+    &__header__headings
+        order: 1
+        @extend %flex-ned-og-center
+
+
+//lunch
+.lunch 
+    grid-area: lunch
+
+    &__desc
+        margin: 1rem 0 0.5rem 1
+
+    &__content
+        max-height: 1200px
+        @extend %flexing
+
+    &__header
+        grid-area: heading-lunch
+        display: flex
+
+    &__header__headings
+            @extend %flex-ned-og-center
+
+
+//sides
+.sides
+    grid-area: sides
+    border-right: dotted 2px black
+    border-left: dotted 2px black
+    
